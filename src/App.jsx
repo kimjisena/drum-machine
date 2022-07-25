@@ -12,16 +12,16 @@ function App() {
         <Display />
 
         <div className={`w-20 h-7 font-bold flex justify-center items-center text-white font-drum-logo bg-black-two rounded-md shadow-inner`}>DRUM</div>
-        
+
         <MinPad pos={`-left-8 -top-8`} name={`hi-hat`} id={`Q`} />
         <MinPad pos={`-right-8 -top-8`} name={`crash`} id={`W`} />
-        <MinPad pos={`left-1 top-[25%]`} name={`hi-hat2`} id={`E`} />
-        <MidPad pos={`top-[15%]`} name={`tom1`} id={`A`} />
-        <MinPad pos={`right-1 top-[25%]`} name={`hi-hat2`} id={`S`} />
-        <MaxPad pos={`-bottom-12 -left-14`} name={`tom2`} id={`D`} />
+        <MinPad pos={`left-1 top-[25%]`} name={`hi-hat-2`} id={`E`} />
+        <MidPad pos={`top-[15%]`} name={`tom-1`} id={`A`} />
+        <MinPad pos={`right-1 top-[25%]`} name={`ride`} id={`S`} />
+        <MaxPad pos={`-bottom-12 -left-14`} name={`tom-2`} id={`D`} />
         <MidPad pos={`-bottom-4 left-[20%]`} name={`snare`} id={`Z`} />
-        <MidPad pos={`-bottom-4 right-[20%]`} name={`tom3`} id={`X`} />
-        <MaxPad pos={`-bottom-12 -right-14`} name={`tom2`} id={`C`} />
+        <MidPad pos={`-bottom-4 right-[20%]`} name={`tom-3`} id={`X`} />
+        <MaxPad pos={`-bottom-12 -right-14`} name={`tom-2`} id={`C`} />
       </div>
     </div>
   );

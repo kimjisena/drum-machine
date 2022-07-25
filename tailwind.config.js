@@ -14,7 +14,7 @@ module.exports = {
     fontFamily: {
       'drum-logo': ['"Ruslan Display"', 'cursive'],
       'display-one': ['"Major Mono Display"', 'monospace'],
-      'display-two': ['"Big Shoulders Stencil Display"', 'cursive']
+      'display-two': ['"Rubik Mono One"', 'sans-serif']
     },
     extend: {},
   },
