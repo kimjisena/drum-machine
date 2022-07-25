@@ -12,9 +12,9 @@ module.exports = {
       'yellow': '#ECFF09'
     },
     fontFamily: {
-      'display-one': ['"Ruslan Display"', 'cursive'],
-      'display-two': ['"Major Mono Display"', 'monospace'],
-      'drum-logo': ['"Big Shoulders Stencil Display"', 'cursive']
+      'drum-logo': ['"Ruslan Display"', 'cursive'],
+      'display-one': ['"Major Mono Display"', 'monospace'],
+      'display-two': ['"Big Shoulders Stencil Display"', 'cursive']
     },
     extend: {},
   },
