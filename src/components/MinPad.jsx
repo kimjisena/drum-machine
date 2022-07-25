@@ -1,6 +1,6 @@
 import React from 'react';
 
-function MiniPad() {
+function MinPad() {
   return (
     <>
         <div className={`pad absolute -left-8 -top-8 flex justify-center items-center bg-black-one rounded-full w-20 h-20`}>
@@ -15,4 +15,4 @@ function MiniPad() {
   );
 }
 
-export default MiniPad;
+export default MinPad;
