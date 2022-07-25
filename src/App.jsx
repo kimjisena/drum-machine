@@ -1,4 +1,5 @@
 import React from "react";
+import MinPad from "./components/MinPad";
 
 function App() {
   return (
@@ -6,29 +7,10 @@ function App() {
       <div id="drum-machine" className={`relative flex flex-col items-center w-1/4 h-1/3 text-xl border-2 bg-black-one`}>
         <div id="display" className={`absolute bottom-full w-3/5 h-1/3 bg-black-one`}>Display</div>
 
-        <div className={`pad absolute -left-8 -top-8 flex justify-center items-center bg-black-one rounded-full w-20 h-20`}>
-          <div className={`flex justify-center items-center w-[90%] h-[90%] bg-white rounded-full`}>
-            <div id="hi-hat" className={`drum-pad flex justify-center items-center w-[70%] h-[70%] bg-black-one rounded-full text-white`}>
-              Q
-              <audio id="Q" src="" className={`clip`}></audio>
-            </div>
-          </div>
-        </div>
-
-        <div className={`pad absolute -right-8 -top-8 flex justify-center items-center bg-black-one rounded-full w-20 h-20`}>
-          <div className={`flex justify-center items-center w-[90%] h-[90%] bg-white rounded-full`}>
-            <div className={`w-[70%] h-[70%] bg-black-one rounded-full`}></div>
-          </div>
-        </div>
-
-        <div id="crash" className={`drum-pad`}>
-          W
-          <audio id="W" src="" className={`clip`}></audio>
-        </div>
-        <div id="hi-hat2" className={`drum-pad`}>
-          E
-          <audio id="E" src="" className={`clip`}></audio>
-        </div>
+        <MinPad pos={`-left-8 -top-8`} name={`hi-hat`} id={`Q`} />
+        <MinPad pos={`-right-8 -top-8`} name={`crash`} id={`W`} />
+        <MinPad pos={`left-1 top-[25%]`} name={`hi-hat2`} id={`E`} />
+        <MinPad pos={`right-1 top-[25%]`} name={`hi-hat2`} id={`S`} />
 
         <div className={`pad absolute top-[25%] flex justify-center items-center bg-black-one rounded-full w-24 h-24`}>
           <div className={`flex justify-center items-center w-[90%] h-[90%] bg-white rounded-full`}>
@@ -39,11 +21,6 @@ function App() {
           </div>
         </div>
 
-
-        <div id="ride" className={`drum-pad`}>
-          S
-          <audio id="S" src="" className={`clip`}></audio>
-        </div>
         <div id="kick" className={`drum-pad`}>
           D
           <audio id="D" src="" className={`clip`}></audio>
