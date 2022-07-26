@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import {FaPowerOff} from 'react-icons/fa';
 
-function Display() {
+function Display({display}) {
     const [on, setOn] = useState(true);
-    const [display, setDisplay] = useState('ON');
 
     return (
         <div className={`absolute flex flex-col justify-between items-center bottom-full w-3/5 h-[38%] bg-black-one rounded-t-md`}>
