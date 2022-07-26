@@ -62,6 +62,7 @@ const sounds = [
 function App() {
     const [display, setDisplay] = useState('ON');
     const [status, setStatus] = useState(true);
+    const [vol, setVol] = useState(0.3);
 
     const handleDisplay = (text) => {
         setDisplay(text);
@@ -76,10 +77,25 @@ function App() {
         setStatus(!status);
     };
 
+    const adjustVolume = (event) => {
+        if  (status) {
+            setVol(event.target.value);
+            setDisplay('🔉 ' + Math.round(event.target.value * 100));
+            setTimeout(() => setDisplay(''), 1000);
+        }
+    };
+
+    // get all clips and set their volume level to vol before rendering the UI
+    const clips = [].slice.call(document.getElementsByClassName('clip'));
+    
+    clips.forEach(sound => {
+        sound.volume = vol;
+    });
+
     return (
         <div className={`app w-full h-[100vh] flex flex-col justify-center items-center`}>
             <div id="drum-machine" className={`relative flex flex-col items-center w-[340px] h-[31%] text-xl border-2 bg-black-one`}>
-                <Display display={display} on={status} clickHandler={handleStatus} />
+                <Display display={display} on={status} clickHandler={handleStatus} value={vol} adjustVolume={adjustVolume} />
 
                 <div className={`w-20 h-7 font-bold flex justify-center items-center text-white font-drum-logo bg-black-two rounded-md shadow-inner`}>DRUM</div>
                 {/* Q, W */}

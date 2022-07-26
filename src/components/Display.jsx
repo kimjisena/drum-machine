@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
 import {FaPowerOff} from 'react-icons/fa';
 
-function Display({display, on, clickHandler}) {
+function Display({display, on, clickHandler, value, adjustVolume}) {
 
     return (
         <div className={`absolute flex flex-col justify-between items-center bottom-full w-3/5 h-[38%] bg-black-one rounded-t-md`}>
             <div id="vol-control" className={`relative flex justify-center items-center bg-[gray] w-[90%] h-[40%] mt-1`}>
-                <div id='track' className={`bg-[black] w-full h-1`}></div>
-                <div id='slider' className={`absolute left-3 h-[90%] w-2 bg-black-one`}></div>
+                <input className={`w-full bg-[black] hover:cursor-pointer`} max='1' min='0' onChange={(ev) => adjustVolume(ev)} step='0.01' type='range' value={value} />
             </div>
-        
+
             <div className={`flex justify-between items-center w-[90%] h-[38%] mb-1`}>
                 <div id="display" className={`w-[80%] h-full bg-[black] shadow-inner shadow-white font-display-two text-center text-md text-red border  border-white border-r-0 border-b-0`}>
                     {display}
