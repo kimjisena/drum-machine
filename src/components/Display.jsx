@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import {FaPowerOff} from 'react-icons/fa';
 
-function Display({display}) {
-    const [on, setOn] = useState(true);
+function Display({display, on, clickHandler}) {
 
     return (
         <div className={`absolute flex flex-col justify-between items-center bottom-full w-3/5 h-[38%] bg-black-one rounded-t-md`}>
@@ -15,7 +14,7 @@ function Display({display}) {
                 <div id="display" className={`w-[80%] h-full bg-[black] shadow-inner shadow-white font-display-two text-center text-md text-red border  border-white border-r-0 border-b-0`}>
                     {display}
                 </div>
-                <div className={`flex justify-center items-center w-7 h-7 bg-[gray] rounded-full`}>
+                <div onClick={() => clickHandler()} className={`flex justify-center items-center hover:cursor-pointer w-7 h-7 bg-[gray] rounded-full`}>
                     <FaPowerOff size={`24px`} className={`${on ? 'text-yellow': 'text-white'}`} />
                 </div>
             </div>
