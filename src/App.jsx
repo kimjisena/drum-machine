@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import Display from "./components/Display";
-import MinPad from "./components/MinPad";
-import MaxPad from "./components/MaxPad";
-import MidPad from "./components/MidPad";
+import GenericPad from "./components/GenericPad";
 
 const sounds = [
   {
@@ -64,12 +62,7 @@ const sounds = [
 function App() {
     const [display, setDisplay] = useState('ON');
 
-    const handleClick = (event) => {
-        let text = event.currentTarget
-                    .childNodes[0]
-                    .childNodes[0]
-                    .id.replace(/-/, ' ').toUpperCase();
-
+    const handleClick = (text) => {
         setDisplay(text);
     };
 
@@ -79,20 +72,20 @@ function App() {
                 <Display display={display} />
 
                 <div className={`w-20 h-7 font-bold flex justify-center items-center text-white font-drum-logo bg-black-two rounded-md shadow-inner`}>DRUM</div>
+                {/* Q, W */}
+                <GenericPad pos={`-left-8 -top-8`} size={`min`} content={sounds[0]} clickHandler={handleClick} />
+                <GenericPad pos={`-right-8 -top-8`} size={`min`} content={sounds[1]} clickHandler={handleClick} />
 
-                <MinPad pos={`-left-8 -top-8`} name={sounds[0].id} id={sounds[0].keyTrigger} />
-                <MinPad pos={`-right-8 -top-8`} name={sounds[1].id} id={sounds[1].keyTrigger} />
-                <MinPad pos={`left-1 top-[25%]`} name={sounds[2].id} id={sounds[2].keyTrigger} />
+                {/* E, A, S */}
+                <GenericPad pos={`left-1 top-[25%]`} size={`min`} content={sounds[2]} clickHandler={handleClick} />
+                <GenericPad pos={`top-[15%]`} size={`mid`} content={sounds[3]} clickHandler={handleClick} />
+                <GenericPad pos={`right-1 top-[25%]`} size={`min`} content={sounds[4]} clickHandler={handleClick} />
 
-                <MidPad clickHandler={handleClick} pos={`top-[15%]`} name={sounds[3].id} id={sounds[3].keyTrigger} />
-
-                <MinPad pos={`right-1 top-[25%]`} name={sounds[4].id} id={sounds[4].keyTrigger} />
-                <MaxPad pos={`-bottom-12 -left-14`} name={sounds[5].id} id={sounds[5].keyTrigger} />
-
-                <MidPad clickHandler={handleClick} pos={`-bottom-4 left-[20%]`} name={sounds[6].id} id={sounds[6].keyTrigger} />
-                <MidPad clickHandler={handleClick} pos={`-bottom-4 right-[20%]`} name={sounds[7].id} id={sounds[7].keyTrigger} />
-
-                <MaxPad pos={`-bottom-12 -right-14`} name={sounds[8].id} id={sounds[8].keyTrigger} />
+                {/* D, Z, X, C */}
+                <GenericPad pos={`-bottom-12 -left-14`} size={`max`} content={sounds[5]} clickHandler={handleClick} />
+                <GenericPad pos={`-bottom-4 left-[20%]`} size={`mid`} content={sounds[6]} clickHandler={handleClick} />
+                <GenericPad pos={`-bottom-4 right-[20%]`} size={`mid`} content={sounds[7]} clickHandler={handleClick} />
+                <GenericPad pos={`-bottom-12 -right-14`} size={`max`} content={sounds[8]} clickHandler={handleClick} />
             </div>
         </div>
     );
