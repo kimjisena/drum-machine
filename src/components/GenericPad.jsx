@@ -14,13 +14,13 @@ function GenericPad({pos, size, content, clickHandler, on}) {
         const sound = document.getElementById(content.keyTrigger);
         sound.currentTime = 0;
         sound.play();
+        setTimeout(() => setActive(false), 300);
     }
 
     const play = (text) => {
         clickHandler(text);
         setActive(true);
         playSound();
-        setTimeout(() => setActive(false), 300); // simulate audio playing
     }
 
     const handleClick = (event) => {

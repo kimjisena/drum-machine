@@ -62,7 +62,7 @@ const sounds = [
 function App() {
     const [display, setDisplay] = useState('ON');
     const [status, setStatus] = useState(true);
-    const [vol, setVol] = useState(0.3);
+    const [vol, setVol] = useState(0.2);
 
     const handleDisplay = (text) => {
         setDisplay(text);
