@@ -34,8 +34,8 @@ function GenericPad({pos, size, content, clickHandler, on}) {
     return (
         <>
             <div onClick={(ev) => handleClick(ev)} className={`pad hover:cursor-pointer absolute ${pos} flex justify-center items-center bg-black-one rounded-full ${size === 'min' ? sizes[0] : size === 'mid' ? sizes[1] : sizes[2]}`}>
-                <div className={`flex justify-center items-center w-[90%] h-[90%] ${active ? 'bg-yellow': 'bg-white'} rounded-full`}>
-                    <div id={content.id} className={`drum-pad flex justify-center items-center w-[70%] h-[70%] bg-black-one rounded-full ${active ? 'text-yellow': 'text-white'} text-3xl font-bold`}>
+                <div className={`flex justify-center items-center w-[90%] h-[90%] ${on ? 'bg-red' : 'bg-white'} ${active ? 'bg-yellow': ''} rounded-full`}>
+                    <div id={content.id} className={`drum-pad flex justify-center items-center w-[70%] h-[70%] bg-black-one rounded-full text-white text-3xl font-bold`}>
                         {content.keyTrigger}
                         <audio id={content.keyTrigger} src={content.url} className={`clip`}></audio>
                     </div>
