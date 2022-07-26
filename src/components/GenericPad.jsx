@@ -6,20 +6,22 @@ const sizes = [
     'w-28 h-28' // max
 ];
 
-function GenericPad({pos, size, content, clickHandler}) {
+function GenericPad({pos, size, content, clickHandler, on}) {
     
     const [active, setActive] = useState(false);
 
     const handleClick = (event) => {
-        let text = event.currentTarget
-                    .childNodes[0]
-                    .childNodes[0]
-                    .id.replace(/-/, ' ')
-                    .toUpperCase();
+        if (on) {
+            let text = event.currentTarget
+                        .childNodes[0]
+                        .childNodes[0]
+                        .id.replace(/-/, ' ')
+                        .toUpperCase();
 
-        clickHandler(text);
-        setActive(true);
-        setTimeout(() => setActive(false), 500);
+            clickHandler(text);
+            setActive(true);
+            setTimeout(() => setActive(false), 500); // simulate audio playing
+        }
     };
 
     return (

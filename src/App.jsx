@@ -67,7 +67,12 @@ function App() {
         setDisplay(text);
     };
 
-    const handleStatus = (event) => {
+    const handleStatus = () => {
+        if (status) {
+            setDisplay('');
+        } else {
+            setDisplay('ON');
+        }
         setStatus(!status);
     };
 
@@ -78,19 +83,19 @@ function App() {
 
                 <div className={`w-20 h-7 font-bold flex justify-center items-center text-white font-drum-logo bg-black-two rounded-md shadow-inner`}>DRUM</div>
                 {/* Q, W */}
-                <GenericPad pos={`-left-8 -top-8`} size={`min`} content={sounds[0]} clickHandler={handleDisplay} />
-                <GenericPad pos={`-right-8 -top-8`} size={`min`} content={sounds[1]} clickHandler={handleDisplay} />
+                <GenericPad pos={`-left-8 -top-8`} size={`min`} content={sounds[0]} clickHandler={handleDisplay} on={status} />
+                <GenericPad pos={`-right-8 -top-8`} size={`min`} content={sounds[1]} clickHandler={handleDisplay} on={status} />
 
                 {/* E, A, S */}
-                <GenericPad pos={`left-1 top-[25%]`} size={`min`} content={sounds[2]} clickHandler={handleDisplay} />
-                <GenericPad pos={`top-[15%]`} size={`mid`} content={sounds[3]} clickHandler={handleDisplay} />
-                <GenericPad pos={`right-1 top-[25%]`} size={`min`} content={sounds[4]} clickHandler={handleDisplay} />
+                <GenericPad pos={`left-1 top-[25%]`} size={`min`} content={sounds[2]} clickHandler={handleDisplay} on={status} />
+                <GenericPad pos={`top-[15%]`} size={`mid`} content={sounds[3]} clickHandler={handleDisplay} on={status} />
+                <GenericPad pos={`right-1 top-[25%]`} size={`min`} content={sounds[4]} clickHandler={handleDisplay} on={status} />
 
                 {/* D, Z, X, C */}
-                <GenericPad pos={`-bottom-12 -left-14`} size={`max`} content={sounds[5]} clickHandler={handleDisplay} />
-                <GenericPad pos={`-bottom-4 left-[20%]`} size={`mid`} content={sounds[6]} clickHandler={handleDisplay} />
-                <GenericPad pos={`-bottom-4 right-[20%]`} size={`mid`} content={sounds[7]} clickHandler={handleDisplay} />
-                <GenericPad pos={`-bottom-12 -right-14`} size={`max`} content={sounds[8]} clickHandler={handleDisplay} />
+                <GenericPad pos={`-bottom-12 -left-14`} size={`max`} content={sounds[5]} clickHandler={handleDisplay} on={status} />
+                <GenericPad pos={`-bottom-4 left-[20%]`} size={`mid`} content={sounds[6]} clickHandler={handleDisplay} on={status} />
+                <GenericPad pos={`-bottom-4 right-[20%]`} size={`mid`} content={sounds[7]} clickHandler={handleDisplay} on={status} />
+                <GenericPad pos={`-bottom-12 -right-14`} size={`max`} content={sounds[8]} clickHandler={handleDisplay} on={status} />
             </div>
         </div>
     );
