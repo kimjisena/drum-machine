@@ -13,8 +13,7 @@ module.exports = {
     },
     fontFamily: {
       'drum-logo': ['"Ruslan Display"', 'cursive'],
-      'display-one': ['"Major Mono Display"', 'monospace'],
-      'display-two': ['"Rubik Mono One"', 'sans-serif']
+      'display-default': ['Digital', 'sans-serif']
     },
     extend: {},
   },

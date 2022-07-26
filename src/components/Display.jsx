@@ -10,7 +10,7 @@ function Display({display, on, clickHandler, value, adjustVolume}) {
             </div>
 
             <div className={`flex justify-between items-center w-[90%] h-[38%] mb-1`}>
-                <div id="display" className={`w-[80%] h-full bg-[black] shadow-inner shadow-white font-display-two text-center text-md text-red border  border-white border-r-0 border-b-0`}>
+                <div id="display" className={`w-[80%] h-full bg-[black] shadow-inner shadow-white font-display-default font-extrabold text-center text-xl text-red border  border-white border-r-0 border-b-0`}>
                     {display}
                 </div>
                 <div onClick={() => clickHandler()} className={`flex justify-center items-center hover:cursor-pointer w-7 h-7 ${on ? 'bg-red': 'bg-[gray]'} rounded-full`}>
