@@ -10,6 +10,12 @@ function GenericPad({pos, size, content, clickHandler, on}) {
     
     const [active, setActive] = useState(false);
 
+    const playSound = () => {
+        const sound = document.getElementById(content.keyTrigger);
+        sound.currentTime = 0;
+        sound.play();
+    }
+
     const handleClick = (event) => {
         if (on) {
             let text = event.currentTarget
@@ -20,7 +26,8 @@ function GenericPad({pos, size, content, clickHandler, on}) {
 
             clickHandler(text);
             setActive(true);
-            setTimeout(() => setActive(false), 500); // simulate audio playing
+            playSound();
+            setTimeout(() => setActive(false), 300); // simulate audio playing
         }
     };
 
