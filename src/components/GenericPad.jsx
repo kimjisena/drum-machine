@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const sizes = [
     'w-20 h-20', // min
@@ -16,6 +16,13 @@ function GenericPad({pos, size, content, clickHandler, on}) {
         sound.play();
     }
 
+    const play = (text) => {
+        clickHandler(text);
+        setActive(true);
+        playSound();
+        setTimeout(() => setActive(false), 300); // simulate audio playing
+    }
+
     const handleClick = (event) => {
         if (on) {
             let text = event.currentTarget
@@ -24,12 +31,28 @@ function GenericPad({pos, size, content, clickHandler, on}) {
                         .id.replace(/-/, ' ')
                         .toUpperCase();
 
-            clickHandler(text);
-            setActive(true);
-            playSound();
-            setTimeout(() => setActive(false), 300); // simulate audio playing
+            play(text);
         }
     };
+
+    const handleKeyDown = (event) => {
+        if (event.keyCode === content.keyCode) {
+            let text = document
+                        .getElementById(String.fromCharCode(event.keyCode))
+                        .parentNode.id
+                        .replace(/-/, ' ')
+                        .toUpperCase();
+
+            if (on) {
+                play(text);
+            }
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    });
 
     return (
         <>

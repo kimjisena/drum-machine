@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {FaPowerOff} from 'react-icons/fa';
 
 function Display({display, on, clickHandler, value, adjustVolume}) {
